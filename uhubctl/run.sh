@@ -8,6 +8,14 @@ if bashio::config.has_value 'LOG_LEVEL'; then
 fi
 bashio::log.blue "Log level is set to ${LOG_LEVEL}"
 
+# Setup USB permissions once at startup
+bashio::log.blue "Setting up USB device permissions..."
+if /app/setup-udev.sh; then
+    bashio::log.green "USB setup completed successfully"
+else
+    bashio::log.yellow "USB setup completed with warnings"
+fi
+
 while true
 do
     bashio::log.blue "Starting MQTT - uhubctl bridge..."

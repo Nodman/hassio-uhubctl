@@ -1,5 +1,5 @@
 {
     "name": "MQTT Bridge for uhubctl",
-    "url": "https://github.com/rglenn/hassio-uhubctl",
-    "maintainer": "@rglenn"
+    "url": "https://github.com/Nodman/hassio-uhubctl",
+    "maintainer": "@Nodman"
 }

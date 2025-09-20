@@ -7,12 +7,13 @@ RUN \
         build-base \
         linux-headers \
 	libusb-dev \
-	git \
+	wget \
 	python3 \
  	py3-paho-mqtt
 
-RUN git clone https://github.com/mvp/uhubctl.git /tmp/uhubctl && \
-    cd /tmp/uhubctl && make && make install
+RUN wget https://github.com/mvp/uhubctl/archive/refs/tags/v2.6.0.tar.gz -O /tmp/uhubctl-v2.6.0.tar.gz && \
+    cd /tmp && tar -xzf uhubctl-v2.6.0.tar.gz && \
+    cd uhubctl-2.6.0 && make && make install
 
 COPY . /app
 WORKDIR /app
